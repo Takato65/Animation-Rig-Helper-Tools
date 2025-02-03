@@ -12,6 +12,7 @@ public class BoneRendererUtility
         BoneRenderer boneRenderer = (BoneRenderer)command.context;
         Animator animator = boneRenderer.GetComponentInParent<Animator>();
         SetHumanBones(boneRenderer, animator);
+        
     }
     public static void BoneRendererSetup(Transform transform)
     {
@@ -46,7 +47,8 @@ public class BoneRendererUtility
         if (PrefabUtility.IsPartOfPrefabInstance(boneRenderer))
             EditorUtility.SetDirty(boneRenderer);
     }
-    [MenuItem("Animation Rigging/Bone Renderer Setup (Humanoid Only)", false, 14)]
+
+    [MenuItem("Animation Rigging/Takato/Bone Renderer Setup (Humanoid Only)", false, 11,secondaryPriority = 1)]
     static void BoneRendererSetup()
     {
         var selection = Selection.activeTransform;
@@ -80,4 +82,5 @@ public class BoneRendererUtility
         EditorUtility.SetDirty(boneRenderer);
         Debug.Log("Assigned " + boneTransforms.Count + " human bones to BoneRenderer.");
     }
+    
 }
