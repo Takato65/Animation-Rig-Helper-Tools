@@ -7,5 +7,6 @@ namespace Takato.AnimationRiggingHelperTools.Data
         public string boneName;
         public Vector3 position;
         public Quaternion rotation;
+        public HumanBodyBones humanBodyBone = HumanBodyBones.LastBone;
     }
 }
