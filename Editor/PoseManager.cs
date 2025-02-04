@@ -199,11 +199,13 @@ namespace Takato.AnimationRiggingHelperTools
             if (applyBones == EPoseApplyBones.Humanoid || applyBones == EPoseApplyBones.All)
             {
                 var animator = GetHumanAnimator(selected.transform);
+                if (animator == null) return;
                 foreach (BoneTransform bone in pose.HumanBoneTransforms)
                 {
                     if (bone.humanBodyBone == HumanBodyBones.LastBone) continue;
 
                     var t = animator.GetBoneTransform(bone.humanBodyBone);
+
                     if (t != null && t.IsChildOf(selected.transform))
                     {
                         ApplyBoneTransform(bone, t);
